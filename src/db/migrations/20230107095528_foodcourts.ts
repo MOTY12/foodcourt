@@ -30,7 +30,7 @@ export async function up(knex: Knex): Promise<void> {
         table.integer('userId').notNullable().references('id').inTable('users');
         table.integer('brand_id').notNullable().references('id').inTable('brands');
         table.string('isDeleted').notNullable().defaultTo('false');
-        table.timestamps(true, true);``
+        table.timestamps(true, true);
     })
     .createTable('AddonCategory', (table) => {
         table.increments('id').primary();

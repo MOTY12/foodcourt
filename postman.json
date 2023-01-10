@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "4c8fa27a-40fb-4758-bb17-9f0776c86780",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22984051"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Mukhtar Yusuf\",\n    \"email\": \"Mukhtarapril88@gmail\",\n    \"role\": \"admin\",\n    \"password\":\"Mukhtar2944\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Mukhtarapril88@gmail\",\n    \"password\":\"Mukhtar2944\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "brands",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11a2h0YXIgWXVzdWYiLCJlbWFpbCI6Ik11a2h0YXJhcHJpbDg4QGdtYWlsIiwicm9sZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkU0VHUEJYUVgzMWNTT3ZlM0poRVhKLjdmR29JVW9PeHhnVUNLaDJmMktodXluVXFac2FtRzIiLCJpc0RlbGV0ZWQiOiJmYWxzZSIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTA4VDE5OjEyOjQxLjQ3NloiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wMS0wOFQxOToxMjo0MS40NzZaIiwiaWF0IjoxNjczMjA1MTY1LCJleHAiOjE2NzMyOTE1NjV9.9ZJxX-IL2BPFtmnh1YyGlUTOQC7b9aPmiZDV9qGE7H8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"jumia\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/brands/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"brands",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addon",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11a2h0YXIgWXVzdWYiLCJlbWFpbCI6Ik11a2h0YXJhcHJpbDg4QGdtYWlsIiwicm9sZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkU0VHUEJYUVgzMWNTT3ZlM0poRVhKLjdmR29JVW9PeHhnVUNLaDJmMktodXluVXFac2FtRzIiLCJpc0RlbGV0ZWQiOiJmYWxzZSIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTA4VDE5OjEyOjQxLjQ3NloiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wMS0wOFQxOToxMjo0MS40NzZaIiwiaWF0IjoxNjczMjA1MTY1LCJleHAiOjE2NzMyOTE1NjV9.9ZJxX-IL2BPFtmnh1YyGlUTOQC7b9aPmiZDV9qGE7H8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"jollof rice and chicken\",\n    \"price\": 2000,\n    \"description\":\"two portion of rice\",\n    \"category\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/brands/1/addon",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"brands",
+						"1",
+						"addon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get addon",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11a2h0YXIgWXVzdWYiLCJlbWFpbCI6Ik11a2h0YXJhcHJpbDg4QGdtYWlsIiwicm9sZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkU0VHUEJYUVgzMWNTT3ZlM0poRVhKLjdmR29JVW9PeHhnVUNLaDJmMktodXluVXFac2FtRzIiLCJpc0RlbGV0ZWQiOiJmYWxzZSIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTA4VDE5OjEyOjQxLjQ3NloiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wMS0wOFQxOToxMjo0MS40NzZaIiwiaWF0IjoxNjczMjEzNzUxLCJleHAiOjE2NzMzMDAxNTF9.GpkQj-E8GPpiSHsZlE6JcYnU_CmRAQq7bq-M6eyk74A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/brands/1/addon",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"brands",
+						"1",
+						"addon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get a  single addon",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11a2h0YXIgWXVzdWYiLCJlbWFpbCI6Ik11a2h0YXJhcHJpbDg4QGdtYWlsIiwicm9sZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkU0VHUEJYUVgzMWNTT3ZlM0poRVhKLjdmR29JVW9PeHhnVUNLaDJmMktodXluVXFac2FtRzIiLCJpc0RlbGV0ZWQiOiJmYWxzZSIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTA4VDE5OjEyOjQxLjQ3NloiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wMS0wOFQxOToxMjo0MS40NzZaIiwiaWF0IjoxNjczMjEzNzUxLCJleHAiOjE2NzMzMDAxNTF9.GpkQj-E8GPpiSHsZlE6JcYnU_CmRAQq7bq-M6eyk74A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/brands/1/addon/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"brands",
+						"1",
+						"addon",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update addon",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11a2h0YXIgWXVzdWYiLCJlbWFpbCI6Ik11a2h0YXJhcHJpbDg4QGdtYWlsIiwicm9sZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkU0VHUEJYUVgzMWNTT3ZlM0poRVhKLjdmR29JVW9PeHhnVUNLaDJmMktodXluVXFac2FtRzIiLCJpc0RlbGV0ZWQiOiJmYWxzZSIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTA4VDE5OjEyOjQxLjQ3NloiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wMS0wOFQxOToxMjo0MS40NzZaIiwiaWF0IjoxNjczMjEzNzUxLCJleHAiOjE2NzMzMDAxNTF9.GpkQj-E8GPpiSHsZlE6JcYnU_CmRAQq7bq-M6eyk74A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\": 2500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/brands/1/addon/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"brands",
+						"1",
+						"addon",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

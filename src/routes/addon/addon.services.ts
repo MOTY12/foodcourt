@@ -2,15 +2,16 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectModel } from "nestjs-objection/dist";
 import { Brands } from "../brands/entities/brands.entity";
 import { AddonCategoryDto, CreateAddonDto, GetAddonDto, UpdateAddonDto } from "./dto/addon.dto";
-import { Addon, AddonCategory } from "./entities/addon.entities";
+import { Addons } from "./entities/addon.entities";
+import { AddonCategories  } from "./entities/addonCategory.entities";
 
 
 @Injectable()
 export class AddonService{
     constructor(
-        @InjectModel(Addon) private readonly addonModel: typeof Addon,
+        @InjectModel(Addons) private readonly addonModel: typeof Addons,
         @InjectModel(Brands) private readonly brandModel: typeof Brands,
-        @InjectModel(AddonCategory) private readonly addonCategoryModel: typeof AddonCategory
+        @InjectModel(AddonCategories) private readonly addonCategoryModel: typeof AddonCategories
     ){}
 
     async createAddon(userInfo: any, brandId: number, createAddonDto: CreateAddonDto): Promise<any>{
@@ -58,21 +59,22 @@ export class AddonService{
               
             //check if brand exists
             const brand = await this.brandModel.query().findById(brandId)
+             
 
             if(!brand){
                 throw new HttpException('Brand does not exist', 404)
             }
 
             //get the addons
-            const result = await this.addonModel.query().page(pageOptions.page, pageOptions.limit).where(modelParameter)
-
+            const result = await this.addonModel.query().page(pageOptions.page, pageOptions.limit).where(modelParameter).withGraphFetched('Brandsref');
             return {
                 statusCode:  HttpStatus.OK,
                 message: 'Addon fetched successfully',
                 data: result
             };
         } catch (error) {
-            throw new HttpException(error.message, 400)
+            // throw new HttpException(error.message, 400)
+            console.log(error)
         }
     }
 
@@ -86,13 +88,17 @@ export class AddonService{
                 throw new HttpException('Brand does not exist', 404)
             }
 
+        
             //get the addon
             const result = await this.addonModel.query().
             findOne({
                 brand_id: brandId,
                 id: addonId,
                 isDeleted: false
-            })
+            }).withGraphFetched('Brandsref')
+            .withGraphFetched('categoryRef')
+            
+            ;
 
             return {
                 statusCode:  HttpStatus.OK,
@@ -100,7 +106,8 @@ export class AddonService{
                 data: result
             };
         } catch (error) {
-            throw new HttpException(error.message, 400)
+            // throw new HttpException(error.message, 400)
+            console.log(error)
         }
     }
 

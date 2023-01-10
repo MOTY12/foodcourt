@@ -3,12 +3,13 @@ import { ObjectionModule } from "nestjs-objection/dist";
 import { Brands } from "../brands/entities/brands.entity";
 import { AddonController } from "./addon.controller";
 import { AddonService } from "./addon.services";
-import { Addon, AddonCategory } from "./entities/addon.entities";
+import { Addons } from "./entities/addon.entities";
+import { AddonCategories } from "./entities/addonCategory.entities";
 
 
 @Module({
     imports: [
-        ObjectionModule.forFeature([Addon, Brands, AddonCategory]),
+        ObjectionModule.forFeature([Addons, Brands, AddonCategories]),
     ],
     controllers: [AddonController],
     providers: [AddonService]
